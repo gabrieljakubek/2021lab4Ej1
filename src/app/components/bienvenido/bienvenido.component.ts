@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BienvenidoComponent implements OnInit {
   
-  public bk: string = Utils.getUrl();
+  public bk: string = Utils.getUrlLoginBK();
 
   constructor(public router: Router) {}
 

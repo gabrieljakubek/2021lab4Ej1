@@ -16,7 +16,7 @@ export class Ejercicio1Component implements OnInit {
   public edadDos!: number;
   public resultado!: number;
   public promedio!: number;
-  public bk: string = Utils.getUrl();
+  public bk: string = Utils.getUrlLoginBK();
 
   constructor(public router: Router) {
     this.edadUno =0;

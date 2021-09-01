@@ -1,6 +1,6 @@
-<main class="h_100" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-image': bk} ">
-    <button class="btn btn-sm btn-secondary mb-1" (click)="regresar()"><-</button>
-    <div class="flex_container text-center">
+<main class="h_100" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-size': 'cover','background-image': bk} ">
+    <button class="btn btn-sm btn-secondary mb-1" (click)="regresar()" title="Regresar"><i class="bi bi-arrow-return-left"></i></button>
+    <div class="flex_container text-center form-box">
 
         <form [class]="mostrarLogin == true ? 'mostra' : 'ocultar'" class="form-signin" autocomplete="off">
             <i class="mb-4 bi bi-file-earmark-person tamañoIcono"></i>

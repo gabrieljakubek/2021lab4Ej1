@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   public mostrarLogin :boolean = true;
   public mostrarReg :boolean = false;
   public mostrar :boolean = false;
-  public bk: string = Utils.getUrl();
+  public bk: string = Utils.getUrlLoginBK();
 
   autoCompletar(){
     this.user = this.autoUser;
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
   login() {
     if (this.user === this.autoUser && this.password === this.autoPassword) {
-      console.log('Acceso concedido');
+      this.router.navigate(['home']);
     } else {
       console.log('Acceso denegado');
     }

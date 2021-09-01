@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" (click)="regresar()" title="Logout">Logout</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="quiensoy()">Quien Soy</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="text-center" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-size': 'cover','background-image': bk} ">
+    <div class="form-box">
+        <h1>Bienvenido a la sala de juegos!!!</h1>
+    </div>
+</main>

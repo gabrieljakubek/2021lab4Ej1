@@ -9,11 +9,16 @@ export class Utils {
     localStorage.setItem('bk',bkgd.toString());
     return bkgd;
   };
-  public static getUrl() {
+  public static getUrlLoginBK() {
     return (
       "url('/assets/images/loginBackgrounds/background" +
       Utils.opcion +
       ".jpg')"
+    );
+  }
+  public static getUrlappBK() {
+    return (
+      "url('/assets/images/appBackground/arcades1.jpg')"
     );
   }
 }

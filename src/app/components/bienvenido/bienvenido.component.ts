@@ -1,3 +1,4 @@
+import { Utils } from './../../classes/utils';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,12 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./bienvenido.component.css']
 })
 export class BienvenidoComponent implements OnInit {
-  public opcion = Math.floor(Math.random() * 3) + 1;
-  getUrl() {
-    return (
-      "url('/assets/images/loginBackgrounds/background" + this.opcion + ".jpg')"
-    );
-  }
+  
+  public bk: string = Utils.getUrl();
+
   constructor(public router: Router) {}
 
   ngOnInit(): void {}

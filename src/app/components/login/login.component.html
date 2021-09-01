@@ -1,4 +1,4 @@
-<main class="h_100" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-image': getUrl()} ">
+<main class="h_100" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-image': bk} ">
     <button class="btn btn-sm btn-secondary mb-1" (click)="regresar()"><-</button>
     <div class="flex_container text-center">
 
@@ -12,7 +12,7 @@
             </div>
             <div class="input-group">
                 <input [type]="mostrar ? 'text' : 'password'" id="password" class="form-control" placeholder="Contraseña" [(ngModel)]="password" name="password">
-                <button class="btn btn-md btnOjo" type="button" id="button-addon2" (click)=" mostrarPassword()"><i [class]="mostrar == true ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i></button>
+                <button class="btn btn-md btnOjo" type="button" id="btnOjoLog" (click)=" mostrarPassword()"><i [class]="mostrar == true ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i></button>
             </div>
 
             <div class="checkbox mb-3">
@@ -33,7 +33,7 @@
             </div>
             <div class="input-group mb-1">
                 <input [type]="mostrar ? 'text' : 'password'" id="newPassword" class="form-control" placeholder="Contraseña" [(ngModel)]="newPassword" name="newPassword">
-                <button class="btn btn-md btnOjo" type="button" id="button-addon2" (click)=" mostrarPassword()"><i [class]="mostrar == true ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i></button>
+                <button class="btn btn-md btnOjo" type="button" id="btnOjoReg" (click)=" mostrarPassword()"><i [class]="mostrar == true ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i></button>
             </div>
             <button class="w-100 btn btn-lg btn-secondary mb-1" type="submit" (click)="registrarse()">Registrarse</button>
             <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="cambiarVisibilidad()">Sign in</button>

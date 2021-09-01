@@ -1,3 +1,4 @@
+import { Utils } from './../../classes/utils';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -21,12 +22,8 @@ export class LoginComponent implements OnInit {
   public mostrarLogin :boolean = true;
   public mostrarReg :boolean = false;
   public mostrar :boolean = false;
-  public opcion = Math.floor(Math.random() * 3) + 1;
-  getUrl() {
-    return (
-      "url('/assets/images/loginBackgrounds/background" + this.opcion + ".jpg')"
-    );
-  }
+  public bk: string = Utils.getUrl();
+
   autoCompletar(){
     this.user = this.autoUser;
     this.password = this.autoPassword;

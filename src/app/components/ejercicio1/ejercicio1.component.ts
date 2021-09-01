@@ -1,3 +1,4 @@
+import { Utils } from './../../classes/utils';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -15,12 +16,8 @@ export class Ejercicio1Component implements OnInit {
   public edadDos!: number;
   public resultado!: number;
   public promedio!: number;
-  public opcion = Math.floor(Math.random() * 3) + 1;
-  getUrl() {
-    return (
-      "url('/assets/images/loginBackgrounds/background" + this.opcion + ".jpg')"
-    );
-  }
+  public bk: string = Utils.getUrl();
+
   constructor(public router: Router) {
     this.edadUno =0;
     this.edadDos =0;

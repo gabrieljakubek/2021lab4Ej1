@@ -1,0 +1,20 @@
+<form class="form-signin">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="!noMostrarError" role="alert">
+        <strong>{{mensajeError}}</strong>
+        <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+    </div>
+    <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <i class="mb-4 bi bi-file-earmark-person tamañoIcono"></i>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <!-- <label for="inputNombre" class="sr-only">Usuario</label>
+    <input type="nombre" id="inputNombre" class="form-control" placeholder="Usuario" [(ngModel)]="user" name="user"> -->
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="nombre@ejemplo.com" [(ngModel)]="email" name="email">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" [(ngModel)]="password" name="password">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="registrarse()">Registrarse</button>
+    <button class="btn btn-lg btn-secondary btn-block" type="button" (click)="iniciarsesion()">Iniciar sesion</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+</form>

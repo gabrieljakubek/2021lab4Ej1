@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lab4-58b2a": {
+      "hosting": {
+        "proyecto1": [
+          "lab4-58b2a"
+        ]
+      }
+    }
+  }
+}

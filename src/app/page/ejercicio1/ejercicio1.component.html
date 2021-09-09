@@ -1,0 +1,24 @@
+<app-menu-principal></app-menu-principal>
+<main class="flex_container text-center" [ngStyle]="{'background-position': 'center','background-repeat': 'no-repeat','background-size': 'cover','background-image': bk} ">
+
+    <form class="principal" autocomplete="off">
+        <h1 class="h3 mb-3 fw-normal">Ejercicio 1</h1>
+
+        <div class="form-floating mb-1">
+            <input type="number" class="form-control" id="edad1" [(ngModel)]="edadUno" name="edad1">
+            <label for="edad1">Edad 1</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="number" class="form-control" id="edad2" [(ngModel)]="edadDos" name="edad2">
+            <label for="edad2">Edad 2</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input class="form-control mb-1" type="text" value="Resultado: {{resultado}}" aria-label="readonly input example" readonly>
+            <input class="form-control mb-1" type="text" value="Promedio: {{promedio}}" aria-label="readonly input example" readonly>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mb-1" (click)="calcular()">Calcular</button>
+        <button class="w-100 btn btn-lg btn-secondary mb-1" (click)="limpiar()">Limpiar campos</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+
+</main>

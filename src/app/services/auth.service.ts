@@ -8,7 +8,13 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { UsuarioCarga } from '../classes/usuario-carga';
-
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateCurrentUser,
+  signOut,
+} from 'firebase/auth';
 @Injectable({
   providedIn: 'root',
 })
@@ -37,36 +43,76 @@ export class AuthService {
   }
 
   // Sign in with email/password
-  SignIn(usuario: UsuarioCarga) {
+  async SignIn(usuario: UsuarioCarga) {
+    const fire: any = getAuth();
     try {
-      return this.afAuth
-        .signInWithEmailAndPassword(usuario.email, usuario.password)
-        .then((result) => {
-          this.SetUserData(result.user);
-          return 'okay';
-        })
-        .catch((error) => {
-          return error.code;
+      return await signInWithEmailAndPassword(
+        fire,
+        usuario.email,
+        usuario.password
+      )
+        .then(
+          (data) => {
+            const { user } = data;
+            this.SetUserData(data.user);
+            return 'okay';
+          },
+          (error) => {
+            return error.code;
+          }
+        )
+        .catch((e) => {
+          throw new Error(e);
         });
+
+      // return this.afAuth
+      //   .signInWithEmailAndPassword(usuario.email, usuario.password)
+      //   .then((result) => {
+      //     this.SetUserData(result.user);
+      //     return 'okay';
+      //   })
+      //   .catch((error) => {
+      //     return error.code;
+      //   });
     } catch (error: any) {
-      return error.code;
+      return error;
     }
   }
 
   // Sign up with email/password
-  SignUp(usuario: UsuarioCarga) {
-    return this.afAuth
+  async SignUp(usuario: UsuarioCarga) {
+    const fire: any = getAuth();
+    return await createUserWithEmailAndPassword(
+      fire,
+      usuario.email,
+      usuario.password
+    )
+      .then(
+        (data) => {
+          this.SendVerificationMail();
+          this.SetUserData(data.user);
+          return 'okay';
+        },
+        (error) => {
+          return error.code;
+        }
+      )
+      .catch((e) => {
+        return new Error(e);
+      });
+
+    /*return this.afAuth
       .createUserWithEmailAndPassword(usuario.email, usuario.password)
-      .then((result: any) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
+      .then((result: any) => {*/
+    /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        this.SendVerificationMail();
+    /*this.SendVerificationMail();
         this.SetUserData(result.user);
         return 'okay';
       })
       .catch((error) => {
         return error.code;
-      });
+      });*/
   }
 
   // Send email verfificaiton when new user sign up
@@ -126,7 +172,7 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: user.email,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
